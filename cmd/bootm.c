@@ -23,6 +23,10 @@
 
 DECLARE_GLOBAL_DATA_PTR;
 
+#ifndef CONFIG_SYS_MAX_FLASH_BANKS
+#define CONFIG_SYS_MAX_FLASH_BANKS 1
+#endif
+
 #if defined(CONFIG_CMD_IMI)
 static int image_info(unsigned long addr);
 #endif
