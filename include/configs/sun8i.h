@@ -27,13 +27,22 @@
 	#define CONFIG_SUNXI_USB_PHYS	2
 #endif
 
-#define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \
+/*
+ * #define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \
                              "sf read 0x41800000 0x100000 0x10000; "  \
                              "sf read 0x41000000 0x110000 0x400000; " \
                              "bootz 0x41000000 - 0x41800000"
 
 #define CONFIG_BOOTARGS      "console=ttyS0,115200 earlyprintk panic=5 rootwait " \
                              "mtdparts=spi32766.0:1M(uboot)ro,64k(dtb)ro,4M(kernel)ro,-(rootfs) root=31:03 rw rootfstype=jffs2"
+*/
+
+#define CONFIG_BOOTCOMMAND   "sf probe 0; "                           \
+                             "sf read 0x41800000 0x78000 0x10000; "  \
+                             "sf read 0x41000000 0x88000 0x400000; " \
+                             "bootz 0x41000000 - 0x41800000"
+
+#define CONFIG_BOOTARGS      "console=ttyS0,115200 panic=5 mtdparts=spi0.0:480k(u-boot),32k(dtb),32k(env),3552k(kernel),6144k(rootfs),6144k(rootfs_data) rootwait root=/dev/mtdblock5 ro"
 
 #define CONFIG_CMD_BOOTZ 1
 
