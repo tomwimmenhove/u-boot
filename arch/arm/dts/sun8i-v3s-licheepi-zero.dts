@@ -51,7 +51,6 @@
 	aliases {
 		ethernet0 = &emac;
 		serial0 = &uart0;
-		spi0 = &spi0;
 	};
 
 	chosen {
@@ -65,10 +64,6 @@
 	broken-cd;
 	bus-width = <4>;
 	vmmc-supply = <&reg_vcc3v3>;
-	status = "okay";
-};
-
-&spi0 {
 	status = "okay";
 };
 
@@ -98,8 +93,3 @@
 	usb0_id_det-gpio = <&pio 5 6 GPIO_ACTIVE_HIGH>;
 	status = "okay";
 };
-
-&spi0_pins {
-        drive-strength = <40>;
-};
-
